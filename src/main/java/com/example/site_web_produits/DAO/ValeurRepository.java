@@ -1,2 +1,4 @@
-package com.example.site_web_produits.DAO;public class ValeurRepository {
+package com.example.site_web_produits.DAO;
+
+public class ValeurRepository {
 }
