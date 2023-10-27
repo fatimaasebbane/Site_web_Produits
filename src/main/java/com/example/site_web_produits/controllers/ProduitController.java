@@ -1,21 +1,32 @@
-package com.example.site_web_produits.Controllers;
-
+package com.example.site_web_produits.controllers;
 import com.example.site_web_produits.Services.ProduitService;
+import com.example.site_web_produits.dto.GetCategoryDto;
 import com.example.site_web_produits.dto.CreateProduitDto;
+import com.example.site_web_produits.dto.ListProductDto;
+import com.example.site_web_produits.dto.ProduitDto;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/produits")
+@CrossOrigin
+@RequestMapping("Products")
 public class ProduitController {
-    @Autowired
-    private ProduitService produitService;
 
+    @Autowired
+    ProduitService produitService;
+
+    public ProduitController(ProduitService produitService) {
+        this.produitService = produitService;
+    }
     @PostMapping("/creer")
     public String  creerProduit(@RequestBody CreateProduitDto createProduitDto) {
         return  produitService.save(createProduitDto);
+
+    @PostMapping("ListByCategory")
+    public List<ListProductDto> getProductsByCategory(@RequestBody GetCategoryDto categoryDto){
+        return produitService.getByCategory(categoryDto);
+
     }
 }

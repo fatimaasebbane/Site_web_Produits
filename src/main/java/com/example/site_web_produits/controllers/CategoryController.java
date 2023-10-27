@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("categories")
 public class CategoryController {
 
@@ -27,9 +28,9 @@ public class CategoryController {
     @PostMapping("create")
     public String create(@RequestBody CreateCategoryDto categoryDto) {
         String response = "The name provided already exits.";
-        Boolean alreadyExists = categoryService.save(categoryDto.getCategory());
-        if (!alreadyExists){
-            champService.save(categoryDto.getChampList());
+        Category cat = categoryService.save(categoryDto.getCategory());
+        if (cat != null){
+            champService.save(categoryDto.getChampList(),cat);
             response = "The new category has been added";
         }
         return  response;
