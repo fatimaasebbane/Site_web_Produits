@@ -18,13 +18,13 @@ public class CategoryService {
         this.categoryRepository = categoryRepository;
     }
 
-    public boolean save(Category category){
+    public Category save(Category category){
         Category cat = categoryRepository.findByNom(category.getNom());
-        if (cat != null){
-            return true;
+        if (cat == null){
+            return  categoryRepository.save(category);
+
         }
-        categoryRepository.save(category);
-        return false;
+        return null;
 
     }
 
