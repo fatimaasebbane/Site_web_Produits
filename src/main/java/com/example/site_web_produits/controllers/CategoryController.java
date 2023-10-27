@@ -1,4 +1,4 @@
-package com.example.site_web_produits.controllers;
+package com.example.site_web_produits.Controllers;
 
 import com.example.site_web_produits.Services.CategoryService;
 import com.example.site_web_produits.Services.ChampService;
