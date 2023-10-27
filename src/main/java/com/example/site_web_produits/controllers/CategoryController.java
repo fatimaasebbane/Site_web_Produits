@@ -26,14 +26,14 @@ public class CategoryController {
     }
 
     @PostMapping("create")
-    public String create(@RequestBody CreateCategoryDto categoryDto) {
-        String response = "The name provided already exits.";
+    public Boolean create(@RequestBody CreateCategoryDto categoryDto) {
+
         Category cat = categoryService.save(categoryDto.getCategory());
         if (cat != null){
             champService.save(categoryDto.getChampList(),cat);
-            response = "The new category has been added";
+            return true;
         }
-        return  response;
+        return  false;
     }
 
     @GetMapping("all")
