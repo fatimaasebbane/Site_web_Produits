@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ValeurChampDto {
-
+    private Integer id;
     private String name;
     private String value;
 }

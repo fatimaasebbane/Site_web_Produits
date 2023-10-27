@@ -28,7 +28,7 @@ public class ValeurService {
     public List<ValeurChampDto>  getPriductAttributes(Produit produit){
         List<Valeur> valeurs = valeurRepository.findByProduit(produit);
         List<ValeurChampDto> valeurChampDtos = valeurs.stream().
-                map(valeur -> new ValeurChampDto(valeur.getChamp().getName(),valeur.getValue()))
+                map(valeur -> new ValeurChampDto(valeur.getId(),valeur.getChamp().getName(),valeur.getValue()))
                 .collect(Collectors.toList());
         return valeurChampDtos;
     }

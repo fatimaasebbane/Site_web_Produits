@@ -31,6 +31,8 @@ public class ProduitService {
     ValeurRepository valeurRepository;
     @Autowired
       CategoryRepository categoryRepository;
+    @Autowired
+    ValeurService valeurService;
 
     public ProduitService(CategoryRepository categoryRepository, ProduitRepository produitRepository,ValeurService valeurService) {
             this.categoryRepository = categoryRepository;

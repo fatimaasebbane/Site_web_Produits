@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface ChampRepository extends JpaRepository<Champ,Integer> {
-    public List<Champ> getChampByCategory_Id(Integer id);
+    public List<Champ> getChampByCategory_Nom(String nom);
 }
