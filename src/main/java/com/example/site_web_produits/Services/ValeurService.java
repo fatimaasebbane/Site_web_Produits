@@ -1,6 +1,7 @@
 package com.example.site_web_produits.Services;
 
 
+
 import com.example.site_web_produits.DAO.ChampRepository;
 import com.example.site_web_produits.DAO.ValeurRepository;
 import com.example.site_web_produits.dto.ProduitDto;
@@ -19,6 +20,7 @@ public class ValeurService {
     @Autowired
     ValeurRepository valeurRepository;
 
+
     public ValeurService(ValeurRepository valeurRepository) {
         this.valeurRepository = valeurRepository;
     }
@@ -26,7 +28,7 @@ public class ValeurService {
     public List<ValeurChampDto>  getPriductAttributes(Produit produit){
         List<Valeur> valeurs = valeurRepository.findByProduit(produit);
         List<ValeurChampDto> valeurChampDtos = valeurs.stream().
-                map(valeur -> new ValeurChampDto(valeur.getChamp().getName(),valeur.getValue()))
+                map(valeur -> new ValeurChampDto(valeur.getId(),valeur.getChamp().getName(),valeur.getValue()))
                 .collect(Collectors.toList());
         return valeurChampDtos;
     }

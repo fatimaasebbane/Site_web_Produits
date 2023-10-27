@@ -1,4 +1,4 @@
-package com.example.site_web_produits.controllers;
+package com.example.site_web_produits.Controllers;
 
 import com.example.site_web_produits.Services.CategoryService;
 import com.example.site_web_produits.Services.ChampService;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin
 @RequestMapping("categories")
+@CrossOrigin
 public class CategoryController {
 
     @Autowired
