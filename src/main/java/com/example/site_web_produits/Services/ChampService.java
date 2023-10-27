@@ -25,10 +25,10 @@ public class ChampService {
             champRepository.save(champ);
         }
     }
-    public List<getChampsDTO> getChampsByCategory(Integer id_category)
+    public List<getChampsDTO> getChampsByCategory(String nom)
     {
-        List<Champ> champList= champRepository.getChampByCategory_Id(id_category);
-        List<getChampsDTO> champsDTOS=champList.stream().map(champ -> new getChampsDTO(champ.getName(),champ.getType())).collect(Collectors.toList());
+        List<Champ> champList= champRepository.getChampByCategory_Nom(nom);
+        List<getChampsDTO> champsDTOS=champList.stream().map(champ -> new getChampsDTO(champ.getId(),champ.getName(),champ.getType())).collect(Collectors.toList());
         return champsDTOS;
     }
 }
