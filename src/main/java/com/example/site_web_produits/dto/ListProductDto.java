@@ -10,6 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ListProductDto {
+    private Integer id;
     private String nom;
     private List<ValeurChampDto> valeurChampList;
 

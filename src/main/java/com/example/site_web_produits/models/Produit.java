@@ -17,6 +17,10 @@ public class Produit {
     private Integer id;
     private String nom;
 
+    @Lob
+    @Column(name = "Pictrure", columnDefinition = "BLOB")
+    private byte[] Pictrure;
+
     @ManyToOne
     private Category category;
 
