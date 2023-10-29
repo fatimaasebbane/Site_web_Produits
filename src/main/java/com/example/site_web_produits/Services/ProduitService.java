@@ -41,7 +41,7 @@ public class ProduitService {
 
       }
 
-    public String save(CreateProduitDto createProduitDto){
+    public Integer save(CreateProduitDto createProduitDto){
 
        Produit produit=createProduitDto.getProduit();
        produitRepository.save(produit);
@@ -52,7 +52,7 @@ public class ProduitService {
             valeurRepository.save(valeur);
         }
 
-        return "le produit est bien ajoutée";
+        return id_produit;
     }
 
 
@@ -66,7 +66,7 @@ public class ProduitService {
                   List<ListProductDto> produitDtos = produits.stream()
                           .map(produit -> {
                                 List<ValeurChampDto> valeurChampDtos = valeurService.getPriductAttributes(produit);
-                                return new ListProductDto(produit.getNom(), valeurChampDtos);
+                                return new ListProductDto(produit.getId(),produit.getNom(), valeurChampDtos);
                           })
                           .collect(Collectors.toList());
                   return produitDtos;
